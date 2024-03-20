@@ -54,7 +54,7 @@ table {
 }
 
 #main {
-  width: 100em;
+  width: 60em;
   margin: 0px auto;
   position: relative;
   min-height: 100vh;
@@ -99,7 +99,7 @@ h1 {
 
 #intro-image {
   margin: 2em 0 0 2em;
-  width: 12em;
+  width: 14em;
   height: 12em;
   float: left;
   overflow: hidden;
