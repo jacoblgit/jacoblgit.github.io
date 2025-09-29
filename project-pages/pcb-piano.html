@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Jacob Lessing - PCB Piano</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+</head>
+
+<body id="body">
+    <div id="main">
+        <h1>PCB Piano</h1>
+        <img src="../images/pcb-piano/product.png" , width=80%>
+
+        <section class="project-section">
+            <h2>Challenge</h2>
+            <p>I thought it would be fun to create a playable piano that fits in my pocket.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Solution Summary</h2>
+            <p> I designed a PCB so that touching the exposed pads plays a note from the on-board speaker. </p>
+        </section>
+
+        <section class="project-section">
+            <h2>Schematic</h2>
+            <p>The most important choice in designing the PCB is picking the chip to be at it's heart. I chose the
+                ESP32-S2. It's fast, inexpensive, and most importantly to this project, it has capactive touch sensing
+                ability. This lets it detect when a piano key is pressed. I then picked "life-support" components for
+                the chip and planned how they'd all be wired together by making the schematic pictured above.</p>
+            <p>Unfortunately, I mistakenly picked a version of the ESP32 without built-in SRAM, breaking the whole
+                device. A new version is on order (September 2022) and it should be fixed soon. Engineering is
+                iterative!</p>
+            <img src="../images/pcb-piano/schematic.png">
+        </section>
+
+        <section class="project-section">
+            <h2>Routing</h2>
+            <p>The final design step is to route the wires (called traces) connecting the components, then sending it
+                off for manufacturing at a foundry in China. The final cost of each board is a little over $5. </p>
+            <img src="../images/pcb-piano/traces.png">
+        </section>
+
+        <section class="project-section">
+            <h2>Learning</h2>
+            <p>As part of learning PCB Design best practices for this project, I completed Altium's PCB Basic Design
+                Course</p>
+            <img src="../images/pcb-piano/certificate.jpg">
+        </section>
+    </div>
+</body>
+
+</html>

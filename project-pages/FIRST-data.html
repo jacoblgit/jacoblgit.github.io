@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Jacob Lessing - Socioeconomics in Robotics</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+</head>
+
+<body id="body">
+    <div id="main">
+        <h1>Socioeconomics in FIRST Robotics</h1>
+        <img src="../images/FIRST-data/econ-performance.png" , width="600px">
+
+        <section class="project-section">
+            <h2>Challenge</h2>
+            <p>In high school, I was on a robotics team. Every year we built a robot to compete against 3500+ teams
+                nationally, in competitions organized by a nonprofit called FIRST. I was also involved local social
+                justice work, which made me curious: <b>How is a team's performance affected by its economic
+                    situation?</b></p>
+        </section>
+
+        <section class="project-section">
+            <h2>Solution Summary</h2>
+            <p>To explore the question quantitatively, I had to collect data, conduct a statistical analysis, and
+                visualize the results.
+        </section>
+
+        <section class="project-section">
+            <h2>Collecting Data</h2>
+            <p>First, I measured team performance based on points scored or matches won, but the data was too noisy to
+                be useful.</p>
+            <p>Looking for something else, I collected data for which teams qualified for the world championship by
+                coding a program that navigates the FIRST website, like a person would, and scrapes the list of
+                qualifying teams off of it and their zip code. </p>
+            <p>To measure a team's economic situation I looked at percent free and reduced lunches (no data for private
+                schools!), team budgets (no data at all!), and finally Census income data for each team's school's zip
+                code. </p>
+            <img src="../images/FIRST-data/scraping.png">
+        </section>
+
+        <section class="project-section">
+            <h2>Statistical Analysis</h2>
+            <p>Finally, after taking a Yale data analysis class, I, and two partners, executed a more thorough
+                statistical analysis of demographic information in FIRST. This time I queried the FIRST API for the
+                data. Some highlights are shown below, and the full report is linked <a
+                    href="https://github.com/jacoblgit/Socioeconomics_in_FIRST/blob/main/Analysis_of_FIRST_Robotics_Teams--final_version.pdf">here</a>.
+            </p>
+        </section>
+
+        <section class="project-section">
+            <h2>Visualizing Results</h2>
+            <img src="../images/FIRST-data/age-performance.png">
+            <img src="../images/FIRST-data/age-region.png">
+        </section>
+    </div>
+</body>
+
+</html>

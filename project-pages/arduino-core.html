@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Jacob Lessing - Fixing Bug in Arduino Core</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+</head>
+
+<body id="body">
+    <div id="main">
+        <h1>Fixing Bug in Arduino Core and Making it 25x Faster</h1>
+
+        <section class="project-section">
+            <h2>Challenge</h2>
+            <p>I wanted something fun to do on my Sunday afternoon, so I thought I'd try to get an LED to blink as fast
+                as possible with an Arduino.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Solution Summary</h2>
+            <p>Using assembly, I ultimately achieved performance 25x that over the official Arduino example Blink sketch
+                code. In the process, I made two contributions to the Arduino Core: A <a
+                    href="https://github.com/arduino/ArduinoCore-API/issues/130#issuecomment-2692870486">digitalToggle
+                    function</a>, which
+                improves pin toggle performance by 1.24x and a <a
+                    href="https://github.com/arduino/ArduinoCore-samd/issues/727">bug fix to the digitalWrite
+                    function</a>.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Fixing a bug in the Arduino Core digitalWrite Function</h2>
+            <p>While looking for inefficiencies in the Arduino Core, I found a bug in the digitalWrite function. The
+                digitalWrite function is what’s used to turn a pin output ON or OFF. It only makes sense to turn a pin
+                ON or OFF if the pin is configured as an OUTPUT, so digitalWrite, confirms first that it is. If its not,
+                digitalWrite instead adjusts the pullup configuration of the pin. At the memory level, there’s two
+                relevant registers related to configuring the INPUT/OUTPUT direction of the pin. Writing to the DIRSET
+                register configures the pin to be an OUTPUT and reading from the DIR register retrieves the pin’s
+                current direction state.</p>
+            <p>The digitalWrite function incorrectly reads from the DIRSET register, rather than the DIR register when
+                determining the pin’s current direction. This will cause the function to sometimes incorrectly attempt
+                configuring pull-up resistors even on pins configured as outputs. This bug has likely been present for
+                some time without causing major functional issues, because (my testing showed) DIRSET usually tracks DIR
+                (but this is not guaranteed!), and setting pull-up configuration on output pins has minimal effect
+                (output drivers override pull-ups).</p>
+            </p>
+        </section>
+
+        <section class="project-section">
+            <h2>Making an LED Blink Very Fast</h2>
+            <p>Attempts and Results</p>
+            <img src="../images/arduino-core/attempts.png">
+            <p>Source Code and Analysis</p>
+            <img src="../images/arduino-core/sourcecode.png">
+            <p>Dissassembly and Analysis</p>
+            <img src="../images/arduino-core/disassembly.png">
+        </section>
+
+    </div>
+</body>
+
+</html>

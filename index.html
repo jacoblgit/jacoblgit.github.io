@@ -1,324 +1,297 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <!-- Title -->
-    <title>William Yang</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
 
-    <!-- Isotope JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<head>
+  <!-- Title -->
+  <title>Jacob Lessing</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.png">
+  <!-- Isotope JS -->
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-    </style>
-  </head>
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.png">
 
-  <body id="body">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+  </style>
+</head>
 
-    <div id="main">
-      <div id="intro">
-        <div id="intro-text">
-          <h1>William Yang</h1>
+<body id="body">
+  <div id="main-landing-page">
+    <div id="intro">
+      <div id="intro-text">
+        <h1>Jacob Lessing</h1>
+        <p> I'm a robotics researcher interested in making robots accomplish complex tasks efficiently and robustly.
+          This includes researching optimal control, learning, and foundation models, among other algorithmic frameworks
+          which achieve intelligent motion. My goal is developing models that work in the "real-world," which requires
+          not just simulating results, but physically building and testing robotic systems to understand them.
+          <br>
+        <p> I am a Masters student at Carnegie Mellon University, graduating summer 2027. Previously, I received my B.S.
+          in applied math and mechanical engineering from Yale University.
+          <br><br>
+          <a href="https://github.com/jacoblgit" target="_blank"
+            rel="noopener noreferrer">Github</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://www.linkedin.com/in/jacob-lessing" target="_blank"
+            rel="noopener noreferrer">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://drive.google.com/file/d/1HP2fO9KYOj7U-V0eGZA2bg98SbGvqJZA/view?usp=sharing" target="_blank"
+            rel="noopener noreferrer">Resume</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <br><br>
+        </p>
+      </div>
+      <div id="intro-image">
+        <img src="images/headshot.png">
+      </div>
+    </div>
+
+    <div id="filters" class="button-group">
+      <button class="button is-checked" data-filter=".highlight">Highlights</button>
+      <button class="button" data-filter=".projects">Projects</button>
+      <button class="button" data-filter=".research">Research</button>
+      <button class="button" data-filter=".jobs">Jobs</button>
+    </div>
+
+    <div class="grid">
+
+      <!-- Highlights -->
+
+      <!-- Preview Videos -->
+      <div class="list-item highlight previews" data-category="highlight">
+
+        <a href="project-pages/ball-beam.html">
+          <video class="preview1" playsinline="" muted="" autoplay="" loop="">
+            <source src="images/ballbeam/ballbeam.mp4" type="video/mp4">
+          </video>
+        </a>
+
+        <a href="project-pages/pick-and-place.html">
+          <video class="preview2" playsinline="" muted="" autoplay="" loop="">
+            <source src="images/pickandplace/pickandplace.mp4" type="video/mp4">
+          </video></a>
+      </div>
+
+      <!-- Projects -->
+      <div class="list-item projects" data-category="projects">
+        <a href="project-pages/ball-beam.html" class="thumbnail">
+          <video playsinline="" muted="" autoplay="" loop="" width="180px">
+            <source src="images/ballbeam/ballbeam.mp4" type="video/mp4">
+          </video>
+        </a>
+        <div class="project-description">
+          <h3>Ball-Balancing PID Control System</h3>
           <p>
-            I am a robotics researcher working toward making our robots capable of reliably achieving highly dynamic motions. I am interested in the relevant factors when a robot makes high speed impacts with its environment and how to leverage that insight to develop better controllers. I've developed many controllers for the bipedal robot Cassie, particularly for highly dynamic motions such as running and jumping. Currently, I'm working on contact-rich dynamic manipulation.
             <br>
+            <a href="https://github.com/jacoblgit/Ball-Beam-Robot">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/ball-beam.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br>
-            <p>I am a PhD student in Mechanical Engineering at the University of Pennsylvania working at the DAIR lab, advised by Michael Posa and supported under the NSF Graduate Research Fellowship.
-            <div id="more-bio" style="display: None">
-
-              <br>
-              Previously, my research focused on discovering optimal gaits of quadruped robots with flexible spines with C. David Remy at the University of Michigan where I obtained my Bachelor's in Mechanical Engineering and my Bachelor's in Computer Science Engineering. I spent two undergraduate summers in Seattle as a software development intern at Amazon in the Supply Chain Optimization and AWS divisions. More recently, I spent my 2023 summer interning with Amazon Robotics and had a great time working with Andy Marchese on manipulation motion planning and control.</p>
-            </div>
-            <br>
-            <a href="javascript:toggle_bio()">More Bio Info</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://github.com/yangwill">Github</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://scholar.google.com/citations?user=DHjSnjoAAAAJ&hl=en">G. Scholar</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://www.linkedin.com/in/yang-will/">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <br><br>
           </p>
         </div>
-        <div id="intro-image">
-          <img src="images/profile.jpg">
+      </div>
+
+      <div class="list-item projects" data-category="projects">
+        <a href="project-pages/pick-and-place.html" class="thumbnail">
+          <video playsinline="" muted="" autoplay="" loop="" width="180px">
+            <source src="images/pickandplace/pickandplace.mp4" type="video/mp4">
+          </video>
+        </a>
+        <div class="project-description">
+          <h3>Pick and Place Motion Planning</h3>
+          <p>
+            <br>
+            <a href="https://github.com/jacoblgit/Robot-Pick-and-Place">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/pick-and-place.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
         </div>
       </div>
 
-      <div id="filters" class="button-group">
-        <!-- <button class="button" data-filter="*">Show All</button> -->
-        <button class="button is-checked" data-filter=".highlight">Highlights</button>
-        <button class="button" data-filter=".publication">Research</button>
-        <button class="button" data-filter=".talk">Talks</button>
-        <button class="button" data-filter=".misc">Misc</button>
+      <div class="list-item projects" data-category="projects">
+        <a href="project-pages/arduino-core.html" class="thumbnail">
+          <img src="images/arduino-core/osciliscope.png" width="180px">
+        </a>
+        <div class="project-description">
+          <h3>Fixing Bug in Arduino Core and Making it 25x Faster</h3>
+          <p>
+            <br>
+            <a
+              href="https://github.com/jacoblgit/ArduinoCore-samd/tree/fix-pin-direction-check">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/arduino-core.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
+        </div>
       </div>
 
-      <div class="grid">
-
-        <!-- Highlights -->
-
-        <!-- Preview Videos -->
-        <div class="list-item highlight previews" data-category="highlight">
-
-          <video class="preview1" playsinline="" muted="" autoplay="" loop=""><source src="images/box_jump.mp4" type="video/mp4"></video></a>
-
-          <video class="preview2" playsinline="" muted="" autoplay="" loop=""><source src="images/cassie_running_0.mp4" type="video/mp4"></video></a>
-
-          <video class="preview3" playsinline="" muted="" autoplay="" loop=""><source src="images/dynamic_controlled_sliding.mov" type="video/mp4"></video></a>
-
+      <div class="list-item projects" data-category="projects">
+        <a href="project-pages/pcb-piano.html" class="thumbnail">
+          <img src="images/pcb-piano/product.png" width="180px">
+        </a>
+        <div class="project-description">
+          <h3>Pocket-Sized PCB Piano</h3>
+          <p>
+            <br>
+            <a href="https://github.com/jacoblgit/pcb-piano">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/pcb-piano.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
         </div>
-
-        <!-- Truncated Set of Highlights (Shown by Default) -->
-        <div id="main-highlights">
-
-          
-
-        </div>
-
-        <!-- All Archived Highlights (Click to Show) -->
-        <div id="main-highlights">
-
-        
-
-        </div>
-
-        <!-- Publications -->
-        <div class="list-item publication" data-category="publication">
-          <a href="https://arxiv.org/abs/2504.18978" class="thumbnail">
-              <img src="images/scs_figure_2.png" alt=""/>
-          </a>
-          <div class="project-description">
-            <h3>A biconvex method for minimum-time motion planning through sequences of convex sets</h3>
-            <p>
-              Tobia Marcucci, Mathew Halm, <b>William Yang</b>, Dongchan Lee, Andrew D Marchese<br>
-              Robotics: Science and Systems (RSS) 2025 <br>
-              <br>
-                <a href="https://github.com/TobiaMarcucci/scsplanning">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/abs/2504.18978">Arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <br>
-            </p>
-          </div>          
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://dynamic-controlled-sliding.github.io/" class="thumbnail">
-            <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/dynamic_controlled_sliding.mov" type="video/mp4">
-            </video>
-          </a>
-          <div class="project-description">
-            <h3>Dynamic On-Palm Manipulation via Controlled Sliding</h3>
-            <p>
-              <b>William Yang</b>, Michael Posa<br>
-              Robotics: Science and Systems (RSS) 2024 <br>
-              <font color="49bd9">
-                <i>Outstanding Student Paper Award</i>
-              </font>
-              <br>
-                <a href="https://github.com/DAIRLab/dairlib/tree/plate_balancing/examples/franka">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/abs/2405.08731">Arxiv</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://dynamic-controlled-sliding.github.io/">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <br>
-            </p>
-          </div>          
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://impact-invariant-control.github.io/" class="thumbnail">
-            <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/cassie_running_0.mp4" type="video/mp4">
-            </video>
-          </a>
-          <div class="project-description">
-            <h3>Impact-Invariant Control: Maximizing Control Authority During Impacts</h3>
-            <p>
-              <b>William Yang</b>, Michael Posa<br>
-                <a href="https://github.com/DAIRLab/dairlib/">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/abs/2303.00817">Arxiv</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://impact-invariant-control.github.io/">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <br>
-            </p>
-          </div>          
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://github.com/DAIRLab/dairlib/" class="thumbnail">
-              <img src="images/simulator_validation_fig1.png" alt=""/>
-          </a>
-          <div class="project-description">
-            <h3>Validating Robotics Simulators on Real-World Impacts</h3>
-            <p>
-              Brian Acosta*, <b>William Yang*</b>, Michael Posa<br>
-              IEEE Robotics and Automation Letters (RA-L) 2022<br>
-                <a href="https://github.com/DAIRLab/dairlib/">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/abs/2110.00541">Arxiv</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://github.com/DAIRLab/cassie_impact_dataset">Dataset</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <br>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://github.com/DAIRLab/dairlib/" class="thumbnail">
-            <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/jumping_log_15.mp4" type="video/mp4">
-            </video>
-          </a>
-          <div class="project-description">
-            <h3>Impact Invariant Control with Applications to Bipedal Locomotion</h3>
-            <p>
-              <b>William Yang</b>, Michael Posa<br>
-              IEEE International Conference on Intelligent Robots and Systems (IROS) 2021 <br>
-                <a href="https://github.com/DAIRLab/dairlib/">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                <a href="https://arxiv.org/abs/2103.06907">Arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <br>
-            </p>
-          </div>         
-        </div>
-
-        <div class="list-item publication" data-category="publication">
-          <a href="https://github.com/DAIRLab/dairlib/" class="thumbnail">
-            <video playsinline="" muted="" autoplay="" loop="" width="180px">
-              <source src="images/Gallop3.0.mp4" type="video/mp4">
-            </video>
-            <img src="images/MovieFramesGalloping.png" alt=""/>
-          </a>
-          <div class="project-description">
-            <h3>Spine morphology and energetics: how principles from nature apply to robotics</a></h3>
-            <p>
-              Yevgeniy Yesilevskiy, <b>William Yang</b>, and C. David Remy<br>
-              Bioinspiration & Biomimetics 2018<br>
-              <a href="https://iopscience.iop.org/article/10.1088/1748-3190/aaaa9e/meta">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;
-              <br>
-            </p>
-          </div>     
-        </div>
-
-
-        <!-- Talks -->
-        <!-- <div class="list-item talk description" data-category="talk">
-          Some of my slides can be found <a href="https://slides.com/yangwill">here</a>
-        </div> -->
-
-        <div class="list-item talk" data-category="talk">
-          <p class="date">2022</p> Impact-Invariant Running on the Cassie Bipedal Robot, <a href="https://dynamicwalking.engr.wisc.edu/program/">Dynamic Walking 2022 - Madison, Wisconsin</a>
-        </div>
-
-        <div class="list-item talk" data-category="talk">
-          <p class="date">2022</p> Impact-Invariant Running on the Cassie Bipedal Robot, <a href="https://leggedrobots.org/lrws_2022/index.html">ICRA 2022, Legged Robots Workshop - Philadelphia, Pennsylvania</a>
-        </div>
-
-        <div class="list-item talk" data-category="talk">
-          <p class="date">2017</p> The Effect of Spine Morphology on the Motions and Energetics of Quadrupedal Robots, <a href="http://ruina.tam.cornell.edu/DynamicWalking2017/">Dynamic Walking 2017 - Mariehamn, Finland</a>
-        </div>
-
-        <!-- Services -->
-        <div class="list-item misc" data-category="misc">
-          <p class="date">2023</p> Applied Scientist II intern - Amazon Robotics: Cambridge, Massachusetts
-        </div>
-
-        <div class="list-item misc" data-category="misc">
-          <p class="date">2019</p> NSF GRFP
-        </div>
-
-
       </div>
 
-      <div id="footer"> <a href="https://github.com/yangwill/yangwill.github.io"> Website source code </a> borrowed from <a href="https://andyzeng.github.io/"> Andy Zeng's website</a>.
+      <div class="list-item projects" data-category="projects">
+        <a href="project-pages/searchica.html" class="thumbnail">
+          <img src="images/searchica/mainpage.png" width="180px">
+        </a>
+        <div class="project-description">
+          <h3>Semantic Search Engine</h3>
+          <p>
+            <br>
+            <a href="https://github.com/jacoblgit/searchica">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/searchica.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
+        </div>
       </div>
+
+      <!-- Jobs -->
+      <div class="list-item jobs" data-category="jobs">
+        <p class="date">2025</p> <a href="https://first.global/">First Global</a>, Intern, Remote
+      </div>
+      <div class="list-item jobs" data-category="jobs">
+        <p class="date">2025</p> <a href="https://engineering.yale.edu/">Yale Engineering</a>,
+        Undergraduate Learning
+        Assistant (Mechatronics), New Haven, CT
+      </div>
+      <div class="list-item jobs" data-category="jobs">
+        <p class="date">2022-2024</p> <a href="https://ceid.yale.edu/">Yale Center for Innovation Engineering and
+          Design</a>,
+        Design Aide, New Haven, CT
+      </div>
+      <div class="list-item jobs" data-category="jobs">
+        <p class="date">2020-2021</p> <a href="https://www.isd411.org/">Issaquah School District</a>,
+        Special Education Paraprofessional, Issaquah, WA
+      </div>
+
+      <!-- Research -->
+      <div class="list-item research" data-category="research">
+        <a href="project-pages/med-device.html" class="thumbnail">
+          <img src="images/med-device/software.png" width="180px">
+        </a>
+        <div class="project-description">
+          <h3>Escope -- Endoscopy Metrology Software</h3>
+          <p>
+            <br>
+            <a href="project-pages/med-device.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
+        </div>
+      </div>
+
+      <div class="list-item research" data-category="research">
+        <a href="project-pages/quantum.html" class="thumbnail">
+          <img src="images/quantum/lattice.png" width="180px">
+        </a>
+        <div class="project-description">
+          <h3>Quantum Modeling</h3>
+          <p>
+            <br>
+            <a href="https://github.com/jacoblgit/LatticeTightBindingModel/">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/quantum.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
+        </div>
+      </div>
+      <div class="list-item research" data-category="research">
+        <a href="project-pages/FIRST-data.html" class="thumbnail">
+          <img src="images/FIRST-data/econ-performance.png" width="180px">
+        </a>
+        <div class="project-description">
+          <h3>Socioeconomic Analysis of FIRST Robotics</h3>
+          <p>
+            <br>
+            <a href="https://github.com/jacoblgit/Socioeconomics_in_FIRST/">Code</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+            <a href="project-pages/FIRST-data.html">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <br>
+          </p>
+        </div>
+      </div>
+
 
     </div>
 
-    <script>
+    <div id="footer"> <a href="https://github.com/jacoblgit/jacoblgit.github.io"> Website source code </a> borrowed from
+      <a href="https://yangwill.github.io/"> William Yang's website</a>.
+    </div>
 
-      // Isotope grid.
-      var $grid = $('.grid').isotope({
-        itemSelector: '.list-item',
-        layoutMode: 'fitRows',
-        transitionDuration: 0,
-        stagger: 10,
-        initLayout: false,
-        getSortData: {
-          name: '.name',
-          symbol: '.symbol',
-          number: '.number parseInt',
-          category: '[data-category]',
-          weight: function( itemElem ) {
-            var weight = $( itemElem ).find('.weight').text();
-            return parseFloat( weight.replace( /[\(\)]/g, '') );
-          }
-        }
-      });
+  </div>
 
-      // Bind filter button click.
-      $('#filters').on( 'click', 'button', function() {
-        var filterValue = $( this ).attr('data-filter');
-        localStorage.setItem('filterValue', filterValue);
-        $grid.isotope({ filter: filterValue });
-      });
+  <script>
 
-      // Change is-checked class on buttons.
-      $('.button-group').each( function( i, buttonGroup ) {
-        var $buttonGroup = $( buttonGroup );
-        $buttonGroup.on( 'click', 'button', function() {
-          $buttonGroup.find('.is-checked').removeClass('is-checked');
-          $( this ).addClass('is-checked');
-        });
-      });
-
-      function update_isotope() {
-        // Retrieve cached button click.
-        var defaultFilterValue = localStorage.getItem('filterValue');
-        if (defaultFilterValue == null) {
-          defaultFilterValue = ".highlight"
-        }
-        $grid.isotope({ filter: defaultFilterValue });
-        var buttons = document.getElementsByClassName("button");
-        for (var currButton of buttons) {
-          if (currButton.getAttribute('data-filter') == defaultFilterValue) {
-            currButton.classList.add('is-checked');
-          } else {
-            currButton.classList.remove('is-checked');
-          }
+    // Isotope grid.
+    var $grid = $('.grid').isotope({
+      itemSelector: '.list-item',
+      layoutMode: 'fitRows',
+      transitionDuration: 0,
+      stagger: 10,
+      initLayout: false,
+      getSortData: {
+        name: '.name',
+        symbol: '.symbol',
+        number: '.number parseInt',
+        category: '[data-category]',
+        weight: function (itemElem) {
+          var weight = $(itemElem).find('.weight').text();
+          return parseFloat(weight.replace(/[\(\)]/g, ''));
         }
       }
+    });
 
-      function toggle_bio() {
-        var x = document.getElementById("more-bio");
-        if (x.style.display === "none") {
-          x.style.display = "block";
+    // Bind filter button click.
+    $('#filters').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      localStorage.setItem('filterValue', filterValue);
+      $grid.isotope({ filter: filterValue });
+    });
+
+    // Change is-checked class on buttons.
+    $('.button-group').each(function (i, buttonGroup) {
+      var $buttonGroup = $(buttonGroup);
+      $buttonGroup.on('click', 'button', function () {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        $(this).addClass('is-checked');
+      });
+    });
+
+    function update_isotope() {
+      // Retrieve cached button click.
+      var defaultFilterValue = localStorage.getItem('filterValue');
+      if (defaultFilterValue == null) {
+        defaultFilterValue = ".highlight"
+      }
+      $grid.isotope({ filter: defaultFilterValue });
+      var buttons = document.getElementsByClassName("button");
+      for (var currButton of buttons) {
+        if (currButton.getAttribute('data-filter') == defaultFilterValue) {
+          currButton.classList.add('is-checked');
         } else {
-          x.style.display = "none";
+          currButton.classList.remove('is-checked');
         }
       }
+    }
 
-      function toggle_highlights() {
-        var x = document.getElementById("main-highlights");
-        var y = document.getElementById("more-highlights");
-        var b = document.getElementById("toggle_highlights_button")
-        if (y.style.display === "none") {
-          x.style.display = "none";
-          y.style.display = "block";
-          b.innerHTML = "Show less"
-          update_isotope();
-        } else {
-          x.style.display = "block";
-          y.style.display = "none";
-          b.innerHTML = "Show more"
-          update_isotope();
-        }
-      }
+    update_isotope();
 
-      update_isotope();
+  </script>
+</body>
 
-    </script>
-  </body>
 </html>

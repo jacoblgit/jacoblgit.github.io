@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Jacob Lessing - Quantum Modeling</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+</head>
+
+<body id="body">
+    <div id="main">
+        <h1>Quantum Modeling</h1>
+        <img src="../images/quantum/lattice.png" width="600px">
+
+        <section class="project-section">
+            <h2>Challenge</h2>
+            <p>In summer 2023, I worked with my math professor, Vidvuds Ozolins, chair of Yale applied physics, on a
+                major problem in quantum computing -- quantum error correction. The information storing qubits in a
+                quantum computer often randomly corrupt mid-computation making large programs infeasible.</p>
+            <p>One solution is storing information on a hyberbolic lattice, which enables use of topological properties
+                that endure the corruption of a single qubit. Understanding such a system requires calculating its
+                energy band structure, which is what I worked on. </p>
+        </section>
+
+        <section class="project-section">
+            <h2>Solution Summary</h2>
+            <p>The energy band structure can be approximated with the tight-binding model which simplifies the math
+                involved be assuming all electrons each belong to a fixed site on the lattice. Initially the goal was to
+                do this computation on a hyperbolic lattice, but that goal shifted to implementing a tight-binding model
+                for the more traditional Bravais lattice as proof-of-concept because I wanted to get the model right
+                before extrapolating to the more novel situation.</p>
+            <p>Shown below is code for the model I wrote. The cube of spheres pictured above is a visualization I made
+                of a simple cubic Bravais lattice.</p>
+            <img src="../images/quantum/code.png">
+        </section>
+
+        <section class="project-section">
+            <h2>Result</h2>
+            <p>My program takes as input 3 binding parameters which represent the interactions between atoms in the
+                lattice. It produces a visualization of the electronic band structure, that's manipulable and updates in
+                real time as a user adjusts the binding parameters. My model's advantage is this interactivity which
+                facilitates analysis and develops intuition for the workings of lattice band structures.</p>
+            <p>Pictured below is the program's output for various values of the binding parameters.</p>
+            <img src="../images/quantum/bands.png">
+        </section>
+    </div>
+</body>
+
+</html>

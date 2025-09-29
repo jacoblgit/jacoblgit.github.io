@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Jacob Lessing - Ball & Beam Control System Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+</head>
+
+<body id="body">
+    <div id="main">
+        <h1>Ball-Balancing PID Control System</h1>
+        <section class="video-container">
+            <video controls width="100%">
+                <source src="../images/ballbeam/ballbeam.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </section>
+
+        <section class="project-section">
+            <h2>Challenge</h2>
+            <p>Most autonomous systems rely on feedback control to self-correct when disturbed from their planned
+                motion. One algorithm popular for its simplicity and robustness is the
+                proportional-integral-derivative (PID) controller.</p>
+            <p>I wanted practical experience implementing a PID controller, so applied it to the fun toy problem of
+                controlling the position of a ball rolling on a rotating track.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Solution Summary</h2>
+            <p>I set a goal for the ball to be stopped at the mid-line of the track. A sensor measures the real-time
+                position of the ball, and a motor adjusts the angle of the track. A PID controller commands the
+                motor to restore the ball to the desired equilibrium state. Engineering the system using a first
+                principles approach, I:</p>
+            <ol>
+                <li><b>Modeled the system</b> dynamics using Lagrangian mechanics and linearized around
+                    the equilibrium point</li>
+                <li><b>Tuned the controller</b> for optimal performance using damped harmonic oscillator
+                    theory</li>
+                <li><b>Simulated the system</b> in MATLAB using Laplace domain analysis to determine motor
+                    specifications</li>
+                <li><b>Designed and built</b> the physical system using SolidWorks CAD, 3D printing, and
+                    event-driven C++ programming</li>
+            </ol>
+        </section>
+
+        <section class="project-section">
+            <h2>System Modeling</h2>
+            <img src="../images/ballbeam/model.png"
+                alt="Mathematical model showing Lagrangian equations of motion for the ball-beam system, including free body diagrams and derived differential equations for ball position dynamics">
+        </section>
+
+        <section class="project-section">
+            <h2>Controller Design</h2>
+            <img src="../images/ballbeam/controller.png"
+                alt="PID controller transfer function analysis showing pole-zero placement and stability margins, with tuning parameters derived from damped harmonic oscillator analogy">
+        </section>
+
+        <section class="project-section">
+            <h2>System Simulation</h2>
+            <img src="../images/ballbeam/simulation.png"
+                alt="MATLAB Simulink block diagram of the complete control system showing PID controller, plant dynamics, and sensor feedback loops">
+
+            <img src="../images/ballbeam/blockdiagram.png"
+                alt="Control system block diagram showing signal flow from reference input through PID controller to plant output with feedback">
+
+            <img src="../images/ballbeam/simresults.png"
+                alt="Simulation results showing ball position response over time with step input, demonstrating settling time and overshoot characteristics">
+        </section>
+
+        <section class="project-section">
+            <h2>Physical Implementation</h2>
+            <img src="../images/ballbeam/construction.png"
+                alt="CAD model and assembled hardware showing 3D printed beam mechanism, servo motor mount, position sensor, and control electronics housed in protective enclosure">
+        </section>
+
+        <section class="project-section">
+            <h2>Result</h2>
+            <p>The above video of the system self-correcting following a perturbation shows the ball's behavior
+                approximately aligns with the intended motion of smoothly returning to a stop at the center with
+                minimal overshoot, except for the following:
+            </p>
+            <p>The actual ping pong ball has a unexpectedly large oscillation while settling. I believe this is due
+                to an unsymmetrical mass distribution within the ball itself, causing it to have an accounted for
+                wobble. I confirmed this by seeing that it wobbles when stopping, even on a perfectly flat table.
+            </p>
+            <p>
+                The ball stops with some steady state error. I believe this is due to unaccounted for resistance to
+                the ball rolling. Theoretically, the ball should start rolling the moment the track is at a nonzero
+                angle. In reality, there's some significant angle threshold before the ball starts, which I
+                confirmed through testing. This is probably due to some local flatness on the surface of the ball.
+                When the ball is close to the center, the PD controller calls for such a minute correction, the
+                track angle isn't enough to move the ball.
+            </p>
+            <p>
+                For a future version of the project, I might investigate use of a different type of ball (i.e. a a
+                steel bearing), that doesn't have these same issues.
+            </p>
+
+        </section>
+
+        <section class="project-section">
+            <h2>Reflection</h2>
+            <p>The main lessons I learned from this project are:
+            </p>
+            <ol>
+                <li>
+                    <b>The value of first-principle design.</b> For example, I spent hours trying to tune the PID
+                    controller, but couldn't quite get it right. I returned to the differential equation and
+                    realized it has the form of a damped harmonic oscillator. Using that, I solved for the constants
+                    which give critically damped motion and got my desired behavior without any tuning at all.
+                </li>
+                <li>
+                    <b>The value of a minimum viable product.</b> I started the project with lofty visions and
+                    wanting to make every design decision methodically. I made a CAD model with a whole belt system,
+                    a simulator with full DC motor equations, and fleshed out an event-driven framework for the
+                    code. All that was way overkill, and trying to do it all stalled my progress. I realized to
+                    finish the project I had to identify the most critical systems to focus on, and move quicker on
+                    the rest. I put a lot of thought in to the PD controller (deriving the equations), the safety
+                    limit switches (secure wires, full unit testing), and the track surface (designed for 3D
+                    printing so the top is smooth). In contrast, I moved quickly on designing the overall box for
+                    the electronics, and track shape. Sometimes my shortcuts caused failure, like when I tried press
+                    fitting the track on the motor shift, and it wore down and slipped, but I'd fix the problems
+                    when they happened (I added a coupler to secure the connection). Letting myself fail quickly on
+                    non-critical systems made me learn much quicker, and get more done.
+                </li>
+            </ol>
+        </section>
+    </div>
+</body>
+
+</html>
