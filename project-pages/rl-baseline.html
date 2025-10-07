@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>Jacob Lessing - Reinforcement Learning for Agile Quadruped Locomotion</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+</head>
+
+<body id="body">
+    <div id="main">
+        <h1>RL for Agile Quadruped Locomotion</h1>
+        <section class="video-container">
+            <video controls width="100%">
+                <source src="../images/rl-baseline/rollout.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </section>
+
+        <section class="project-section">
+            <h2>Challenge</h2>
+            <p> Reinforcement learning allows robust and agile control of non-linear, high degree of freedom robots with
+                complex contact-force interactions. As a class assignment, I implement a Actor-Critic RL
+                algorithm to control a quadruped in sim. I run experiments to identify how different variance-reduction
+                techniques and hyperparameter tunings affect learning.
+            </p>
+        </section>
+
+        <section class="project-section">
+            <h2>Solution Summary</h2>
+            <p>For this project, I:</p>
+            <ol>
+                <li><b>Implement reinforcement learning</b> using an on-policy policy gradient algorithm</li>
+                <li><b>Ablate implementation components </b> to understand impact on training</li>
+                <li><b>Vary hyperparameter tuning</b> to understand impact on training</li>
+            </ol>
+        </section>
+
+        <section class="project-section">
+            <h2>Actor-Critic RL Implementation</h2>
+            <p>
+                At each timestep, the torque applied to each motor in the quadruped is sampled from a multidimensional
+                Gaussian parameterized by the output of a multilayer perceptron (the policy or Actor) based on the
+                current
+                state of the robot and the environment. We incentivize certain behaviours (like stable, forward motion)
+                by
+                giving a high score (the reward) to trajectories that achieve it. The policy is trained to make
+                high-reward trajectories more likely. This is done through maximizing the surrogate loss function: sum
+                over all (action, observation) pairs in the rollout the (log_prob(policy(action given the
+                observation) * discounted trajectory reward))
+            </p>
+            <p>
+                To increase training stability, I implement reward-to-go (RTG) rewards, a value function baseline
+                (nnbaseline) and general advantage estimation (GAE):
+            </p>
+
+            <ol>
+                <li>RTG: Instead of training on the full trajectory reward, we want to judge an action based only on the
+                    rewards that result from it, so we weight it in the loss function based on the reward-to-go (sum of
+                    the rewards from the timestamp of action to the end of the trajectory).</li>
+                <li>nnbaseline: We subtract from the reward an estimate of the value function for the given state. One
+                    can prove
+                    subtracting a function of state in
+                    the loss function has no effect on long-term convergence, but can reduce training variance. The
+                    intuition for subtracting the value function (the Critic) is that we learn more from a surprising
+                    observation than an expected one.</li>
+                <li>GAE: The value function is learned and quite inaccurate throughout training. We mitigate this issue
+                    by
+                    including in our value function estimate reward samples from the environment. We call this technique
+                    general advantage estimation.</li>
+            </ol>
+            <p>
+                In the equation below, J is the expected reward we seek to optimize, and delJ is the gradient step we
+                take to maximize it.
+            </p>
+            <img src="../images/rl-baseline/policy-gradient.png">
+        </section>
+
+        <section class="project-section">
+            <h2>Ablation Study</h2>
+            <p>I conducted four training runs of batch size 10000, and learning rate 0.02. Two used a value function
+                baseline (nnbaseline) and two used reward-to-go rewards (RTG). </p>
+            <img src="../images/rl-baseline/ablation.png">
+            <br>
+            <br>
+            <p>Use of a value function baseline appears to significantly accelerate training and RTG
+                appears to somewhat reduce training variance.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Hyperparameter Tuning</h2>
+            <p>Using RTG and an nnbaseline (see ablation study above), I vary the learning rate (lr) and batch size (b)
+                through all combinations of lr = (0.01, 0.02, 0.005) and b = (15000, 35000, 55000).</p>
+            <img src="../images/rl-baseline/tuning.png">
+            <p>For a given learning rate, my experiments show that a larger batch size accelerates learning per
+                iteration. This makes
+                sense as a larger batch size means the data sample is more representative of the model's behaviour
+                across a range of situations. With that said, larger batches take a significantly longer time to train.
+                For a given batch size, the effect of learning rate appears more complicated. The lowest (0.005)
+                learning rate delivered the lowest average reward. The highest learning rate (0.02) appeared to produce
+                the fastest learning, but also the least stable with high variance. This makes sense as a higher
+                learning rate means more rapid gradient descent, but at the risk of potentially overshooting the descent
+                contour of the parameter manifold.
+            </p>
+        </section>
+
+        <section class="project-section">
+            <h2>Result</h2>
+            <p>Based on the hyperparameter tuning and ablation experiments above, I trained a quadruped in sim. In terms
+                of design, I used a policy network with 3 hidden 32 neuron layers, RTG, a value function baseline, and
+                GAE. In terms of hyperparameters, I used a learning rate of 0.02, a reward discount of 0.95, a batch
+                size of 25000, and a lambda-gae of 0.99. The result, depicted at the top of the page is successful
+                quadruped forward locomotion.</p>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -308,7 +308,7 @@ h2 {
 
 .previews {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: max-content max-content auto;
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
   height: 12.5em;
@@ -324,17 +324,17 @@ h2 {
 
 .preview1 {
   grid-column: 1;
-  width: 100%;
+  height: 150px
 }
 
 .preview2 {
   grid-column: 2;
-  width: 78%;
+  height: 150px
 }
 
 .preview3 {
   grid-column: 3;
-  width: 100%;
+  height: 150px
 }
 
 /**************************************************/
@@ -450,73 +450,91 @@ h3 a:hover {
 
   /* 1. Make the main container fluid */
   #main-landing-page {
-    width: 90%; /* Use percentage instead of a fixed 'em' value */
+    width: 90%;
+    /* Use percentage instead of a fixed 'em' value */
   }
 
   /* 2. Stack the intro text and image vertically */
   #intro {
-    flex-direction: column; /* Change flex direction from row to column */
+    flex-direction: column;
+    /* Change flex direction from row to column */
     padding-top: 2em;
   }
 
   #intro-text {
-    width: 100%; /* Allow text to take full width */
+    width: 100%;
+    /* Allow text to take full width */
   }
 
   #intro-image {
-    width: 10em;   /* Adjust image size for mobile */
+    width: 10em;
+    /* Adjust image size for mobile */
     height: 10em;
-    margin: 1em 0; /* Center the image with vertical margin */
+    margin: 1em 0;
+    /* Center the image with vertical margin */
   }
-  
+
   #intro-image img {
-      width: 10em;
+    width: 10em;
   }
 
   /* 3. Make filter buttons a bit smaller and centered */
   .button {
     font-size: 1.2em;
   }
-  
+
   #filters {
-      text-align: center;
+    text-align: center;
   }
-  
+
   #filters .button {
-      float: none; /* Remove float to allow text-align to work */
+    float: none;
+    /* Remove float to allow text-align to work */
   }
 
 
   /* 4. Stack the 3-column "Highlights" grid */
   .previews {
-    grid-template-columns: 1fr; /* Change from 3 columns to 1 column */
-    height: auto;               /* Let height be determined by content */
+    grid-template-columns: 1fr;
+    /* Change from 3 columns to 1 column */
+    height: auto;
+    /* Let height be determined by content */
     gap: 15px;
   }
 
   .previews .preview1,
   .previews .preview2,
   .previews .preview3 {
-    width: 100%; /* Make each video take the full width of the container */
-    grid-column: 1; /* Ensure each item is in the first (and only) column */
+    width: 100%;
+    /* Make each video take the full width of the container */
+    grid-column: 1;
+    /* Ensure each item is in the first (and only) column */
   }
 
   /* 5. Stack project/research items vertically */
   .list-item .thumbnail {
-    float: none;      /* Remove the float */
-    width: 80%;       /* Make thumbnail wider */
-    display: block;   /* Make it a block element */
-    margin: 0 auto 1em auto; /* Center the thumbnail and add space below */
+    float: none;
+    /* Remove the float */
+    width: 80%;
+    /* Make thumbnail wider */
+    display: block;
+    /* Make it a block element */
+    margin: 0 auto 1em auto;
+    /* Center the thumbnail and add space below */
   }
 
   .list-item .project-description {
-    float: none;      /* Remove the float */
-    width: 100%;      /* Make description take full width */
-    text-align: center; /* Center the text for a cleaner look */
+    float: none;
+    /* Remove the float */
+    width: 100%;
+    /* Make description take full width */
+    text-align: center;
+    /* Center the text for a cleaner look */
   }
-  
+
   .list-item .project-description p {
-      padding-bottom: 1em; /* Add some space at the bottom of each item */
+    padding-bottom: 1em;
+    /* Add some space at the bottom of each item */
   }
 
   /* 6. Adjust job listing text for better readability */
