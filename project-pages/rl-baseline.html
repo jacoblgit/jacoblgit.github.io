@@ -3,7 +3,7 @@
 
 <head>
     <!-- Title -->
-    <title>Jacob Lessing - Reinforcement Learning for Agile Quadruped Locomotion</title>
+    <title>Jacob Lessing - Reinforcement Learning for Agile Locomotion</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,7 +24,7 @@
 
 <body id="body">
     <div id="main">
-        <h1>RL for Agile Quadruped Locomotion</h1>
+        <h1>RL for Agile Locomotion</h1>
         <section class="video-container">
             <video controls width="100%">
                 <source src="../images/rl-baseline/rollout.mp4" type="video/mp4">
@@ -37,7 +37,8 @@
             <h2>Challenge</h2>
             <p> Reinforcement learning allows robust and agile control of non-linear, high degree of freedom robots with
                 complex contact-force interactions. As a class assignment, I implement a Actor-Critic RL
-                algorithm to control a quadruped in sim. I run experiments to identify how different variance-reduction
+                algorithm to control a legged robot in sim. I run experiments to identify how different
+                variance-reduction
                 techniques and hyperparameter tunings affect learning.
             </p>
         </section>
@@ -55,7 +56,7 @@
         <section class="project-section">
             <h2>Actor-Critic RL Implementation</h2>
             <p>
-                At each timestep, the torque applied to each motor in the quadruped is sampled from a multidimensional
+                At each timestep, the torque applied to each motor in the robot is sampled from a multidimensional
                 Gaussian parameterized by the output of a multilayer perceptron (the policy or Actor) based on the
                 current
                 state of the robot and the environment. We incentivize certain behaviours (like stable, forward motion)
@@ -122,11 +123,12 @@
 
         <section class="project-section">
             <h2>Result</h2>
-            <p>Based on the hyperparameter tuning and ablation experiments above, I trained a quadruped in sim. In terms
+            <p>Based on the hyperparameter tuning and ablation experiments above, I trained a legged robot in sim. In
+                terms
                 of design, I used a policy network with 3 hidden 32 neuron layers, RTG, a value function baseline, and
                 GAE. In terms of hyperparameters, I used a learning rate of 0.02, a reward discount of 0.95, a batch
                 size of 25000, and a lambda-gae of 0.99. The result, depicted at the top of the page is successful
-                quadruped forward locomotion.</p>
+                forward locomotion.</p>
         </section>
     </div>
 </body>
